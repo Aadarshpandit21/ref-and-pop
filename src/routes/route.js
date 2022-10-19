@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/test-me', function (req, res) {
     console.log('My batch is', abc.name)
     abc.printName()
-    logger.welcome()
+    //logger.welcome()
 
     res.send('My second ever api!')
 });
@@ -13,6 +13,22 @@ router.get('/test-me', function (req, res) {
 router.get('/students', function (req, res){
     let students = ['Sabiha', 'Neha', 'Akash']
     res.send(students)
+})
+router.get('/movies',(req,res)=>{
+  const arr = ['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins'];
+  res.send(arr);
+})
+// 2. Create an API GET /movies/:indexNumber 
+// (For example GET /movies/1 is a valid request and it should return the movie in
+//  your array at index 1). You can define an array of movies again in your api
+router.get('/movies/:indexNumber',(req,res)=>{
+    const arr = ['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins'];
+     let indexNumber = parseInt(req.query);
+     res.send(arr[indexNumber]);
+
+
+
+     res.send("no response");
 })
 
 router.get('/student-details/:name', function(req, res){
