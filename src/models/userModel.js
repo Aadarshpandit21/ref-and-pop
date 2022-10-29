@@ -1,22 +1,19 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema( {
-    bookName: String,
-    authorName: String,
-    year: {
-        type: Number,
+    firstName: String,
+    lastName: String,
+    mobile: {
+        type: String,
         unique: true,
         required: true
     },
-    category: {
+    emailId: String,
+    gender: {
         type: String,
-        enum: ['Comic Book or Graphic Novel.',
-            'Detective and Mystery.',
-            'Fantasy.',
-            'Historical Fiction.',
-            'Horror.',
-            'Literary Fiction.']
-    }
+        enum: ["male", "female", "LGBTQ"] //"falana" will give an error
+    },
+    age: Number,
     // isIndian: Boolean,
     // parentsInfo: {
     //     motherName: String,
@@ -27,3 +24,8 @@ const userSchema = new mongoose.Schema( {
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema) //users
+
+
+
+// String, Number
+// Boolean, Object/json, array

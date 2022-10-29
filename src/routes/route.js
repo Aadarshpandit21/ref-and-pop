@@ -13,12 +13,31 @@ router.post("/createUser", UserController.createUser  )
 router.get("/getUsersData", UserController.getUsersData)
 
 router.post("/createBook", BookController.createBook  )
+router.post("/createAuthor", BookController.createAuthor )
 
 router.get("/getBooksData", BookController.getBooksData)
+router.get("/getAuthorssData", BookController.getAuthorssData)
 
-router.get("/getParticularBooks",BookController.getParticularBooks)
+router.get("/updateBooks", BookController.updateBooks)
+router.post("/deleteBooks", BookController.deleteBooks)
 
-router.get("/getXINRBooks",BookController.getXINRBooks)
+//MOMENT JS
+const moment = require('moment');
+router.get("/dateManipulations", function (req, res) {
+    
+    // const today = moment();
+    // let x= today.add(10, "days")
 
-router.get("/getRandomBooks",BookController.getRandomBooks)
+    // let validOrNot= moment("29-02-1991", "DD-MM-YYYY").isValid()
+    // console.log(validOrNot)
+    
+    const dateA = moment('01-01-1900', 'DD-MM-YYYY');
+    const dateB = moment('01-01-2000', 'DD-MM-YYYY');
+
+    let x= dateB.diff(dateA, "days")
+    console.log(x)
+
+    res.send({ msg: "all good"})
+})
+
 module.exports = router;
