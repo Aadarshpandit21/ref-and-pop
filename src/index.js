@@ -18,7 +18,7 @@ mongoose.connect("mongodb+srv://AadarshPandit21:TzUH6bos1cHJeK4K@cluster0.qs2wbx
 
 app.use (
     function (req, res, next) {
-        const igit P = req.ip;
+        const iP = req.ip;
         const currentDate = moment().format('YYYY-MM-DD,HH-mm-ss')
         console.log ("inside GLOBAL MW");
         const url = req.originalUrl;
